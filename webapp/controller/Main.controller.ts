@@ -1,6 +1,6 @@
 import MessageBox from "sap/m/MessageBox";
 import BaseController from "./BaseController";
-
+import Table from "sap/ui/table/Table";
 /**
  * @namespace cap.app.controller
  */

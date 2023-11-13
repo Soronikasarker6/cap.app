@@ -4,22 +4,117 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:table="sap.ui.table"
 	core:require="{
 		formatter: 'cap/app/model/formatter'
 	}">
+<Page >
+<content>
+    <table:Table
+        id="standstillTable"
+            rowActionCount="2"
+            rows="{path:'/Standstills'}"
+            enableBusyIndicator="true"
+            selectionMode="None"
+            paste="onPaste"
+            ariaLabelledBy="title"
+        >
+            <table:extension >
+                <OverflowToolbar >
 
-	<MessagePage
-		title="{i18n>appTitle}"
-		text="{i18n>appTitle}"
-		icon="sap-icon://accept"
-		id="page"
-		description="{i18n>appDescription}">
-		<buttons>
-			<Button
-				id="helloButton"
-				text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-				press="sayHello" />
-		</buttons>
-	</MessagePage>
+                    <Title text="{i18n>stillstand}"></Title>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button icon="sap-icon://add" type="Emphasized" text="New" press=".onCreate"></Button>
+                </OverflowToolbar>
+            </table:extension>
+			            <table:columns>
+                <table:Column>
+                    <Label text="ID" />
+                    <table:template>
+                        <Text
+                            text="{id}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Name" />
+                    <table:template>
+                        <Text
+                            text="{name}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Group" />
+                    <table:template>
+                        <Text
+                            text="{group}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Hall" />
+                    <table:template>
+                        <Text
+                            text="{hall}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Color" />
+                    <table:template>
+                        <Text
+                            text="{color}"
+                            wrapping="false"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column width="5em"
+                    hAlign="Center">
+                    <Label text="Visualizza" />
+                    <table:template>
 
+                        <HBox
+                            justifyContent="Center"
+                            alignContent="Center"
+                        >
+                            <ObjectStatus
+                                active="true"
+                                icon="{path:'visualizza', formatter:'.formatStandstillIcon' }"
+                                iconDensityAware="false"
+                                inverted="false"
+                                state="{path:'visualizza', formatter:'.formatStandstillState' }"
+                            />
+                        </HBox>
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    width="15em"
+                    hAlign="Center"
+                >
+                    <Label text="Action" />
+                    <table:template>
+                        <l:HorizontalLayout>
+                            <Button
+                                icon="sap-icon://edit"
+                                press="onUpdate"
+                            />
+                            <HBox width="4px" />
+                            <Button
+                                type="Reject"
+                                icon="sap-icon://delete"
+                                press="onDelete"
+                            />
+                        </l:HorizontalLayout>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+			</table:Table>
+</content>
+</Page>
 </mvc:View>
