@@ -1,0 +1,17 @@
+{
+  "generator-ui5-ts-app": {
+    "namespace": "cap.app",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.120.1",
+    "author": "pinky",
+    "initrepo": true,
+    "tstypes": "@sapui5/types",
+    "tstypesVersion": "1.120.1",
+    "appId": "cap.app",
+    "appURI": "cap/app",
+    "cdnDomain": "ui5.sap.com",
+    "defaultTheme": "sap_horizon",
+    "gte11150": true,
+    "setupCompleted": true
+  }
+}
