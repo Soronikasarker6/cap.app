@@ -14,7 +14,7 @@
     <table:Table
         id="standstillTable"
             rowActionCount="2"
-            rows="{path:'/Standstills'}"
+            rows="{path:'/Books'}"
             enableBusyIndicator="true"
             selectionMode="None"
             paste="onPaste"
@@ -23,7 +23,7 @@
             <table:extension >
                 <OverflowToolbar >
 
-                    <Title text="{i18n>stillstand}"></Title>
+                    <Title text="{i18n>appTitle}"></Title>
                     <ToolbarSpacer ></ToolbarSpacer>
                     <Button icon="sap-icon://add" type="Emphasized" text="New" press=".onCreate"></Button>
                 </OverflowToolbar>
@@ -39,7 +39,7 @@
                     </table:template>
                 </table:Column>
                 <table:Column>
-                    <Label text="Name" />
+                    <Label text="Title" />
                     <table:template>
                         <Text
                             text="{name}"
@@ -48,7 +48,7 @@
                     </table:template>
                 </table:Column>
                 <table:Column>
-                    <Label text="Group" />
+                    <Label text="Author ID" />
                     <table:template>
                         <Text
                             text="{group}"
@@ -57,40 +57,12 @@
                     </table:template>
                 </table:Column>
                 <table:Column>
-                    <Label text="Hall" />
+                    <Label text="Stock" />
                     <table:template>
                         <Text
                             text="{hall}"
                             wrapping="false"
                         />
-                    </table:template>
-                </table:Column>
-                <table:Column>
-                    <Label text="Color" />
-                    <table:template>
-                        <Text
-                            text="{color}"
-                            wrapping="false"
-                        />
-                    </table:template>
-                </table:Column>
-                <table:Column width="5em"
-                    hAlign="Center">
-                    <Label text="Visualizza" />
-                    <table:template>
-
-                        <HBox
-                            justifyContent="Center"
-                            alignContent="Center"
-                        >
-                            <ObjectStatus
-                                active="true"
-                                icon="{path:'visualizza', formatter:'.formatStandstillIcon' }"
-                                iconDensityAware="false"
-                                inverted="false"
-                                state="{path:'visualizza', formatter:'.formatStandstillState' }"
-                            />
-                        </HBox>
                     </table:template>
                 </table:Column>
                 <table:Column
